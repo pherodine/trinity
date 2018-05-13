@@ -1,0 +1,54 @@
+.gl-introduction--light,
+.gl-introduction--mid,
+.gl-introduction--dark {
+    line-height: 1.382;
+}
+
+.gl-introduction--light, .gl-introduction--mid {
+    background-color: white;
+    
+    & .gl-introduction__inner {
+        & h1 {
+            color: $color-3;
+        }
+
+        & h4 {
+            color: $color-3;
+        }
+
+        & p {
+            color: #5b6f89;
+        }
+
+        & strong {
+            color: $color-3;
+        }
+    }
+}
+
+.gl-introduction--mid {
+    background-color: #f2f5fa;
+}
+
+.gl-introduction--dark {
+    background-color: $color-1;
+
+    & .gl-introduction__inner {
+
+        & h1 {
+            color: $color-4;
+        }
+
+        & h4 {
+            color: white;
+        }
+
+        & p {
+            color: white;
+        }
+
+        & strong {
+            color: $color-4;
+        }
+    }
+}

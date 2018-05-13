@@ -1,0 +1,154 @@
+@font-face {
+	font-family: 'proxima-light';
+	src: url('../fonts/proxima-light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'proxima';
+	src: url('../fonts/proxima.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'proxima-bold';
+	src: url('../fonts/proxima-bold.ttf') format('truetype');
+}
+
+html {
+    font-size: 16px;
+	font: 100%/1.618 'proxima', sans-serif;
+	//letter-spacing: 0.12rem;
+}
+
+body, input, button {
+	font-smoothing: antialiased;
+}
+
+.indent p { 
+	margin: 0
+}
+
+.indent p + p {
+	margin-top: 1.91rem;
+	text-indent: 1.91rem;
+}
+
+h1 {
+    font-size: 1.382rem;
+}
+
+h2 {
+    font-size: 1.618rem;
+}
+
+h3 {
+    font-size: 1.382rem
+}
+
+h4, p {
+    font-size: 1rem;
+}
+
+h5, small {
+    font-size: 0.724rem;
+}
+
+h6 {
+    font-size: 0.618rem;
+}
+
+p {
+	word-break: normal;
+	hyphens: none;
+}
+
+a,
+a:active,
+a:visited,
+a:focus,
+a:hover {
+	text-decoration: none;
+}
+
+strong {
+	font-weight: 700;
+}
+
+em {
+	font-style: italic;
+}
+
+code, pre {
+	font-family: monospace, serif;
+	font-size: 1rem;
+}
+
+blockquote {
+	font-style: italic;
+}
+
+blockquote:before {
+	content: '\201c';
+	display: inline-block;
+	padding-right: 0.382rem;
+}
+
+.page-title {
+	font-weight: normal;
+	letter-spacing: 7px;
+	text-transform: uppercase;
+}
+
+// smaller 554px to 767px
+@media screen and (min-width: 34em) {
+	
+}
+
+
+// between 768x to 991px
+@media screen and (min-width: 48em) {
+	
+}
+
+
+// between 992px to 1199px
+@media screen and (min-width: 62em) {
+	
+}
+
+
+// between 1200px to 1595px
+@media screen and (min-width: 75em) {
+	h1 {
+		font-size: 1.91rem;
+	}
+	
+	h2 {
+		font-size: 1.618rem;
+	}
+	
+	h3 {
+		font-size: 1.382rem
+	}
+	
+	h4, p {
+		font-size: 1rem;
+	}
+	
+	h5, small {
+		font-size: 0.724rem;
+	}
+	
+	h6 {
+		font-size: 0.618rem;
+	}
+	
+	p {
+		margin: 0 0 1rem;
+	}
+}
+
+
+// greater than 1596px
+@media screen and (min-width: 100em) {
+	
+}

@@ -1,0 +1,144 @@
+// Mobile First upto 543px
+#fdc-hero-image {
+	&-bg:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.15);
+	}
+}
+
+#fdc-hero-image:before {
+	@include pseudo;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $color-1;
+}
+
+#fdc-hero-image .ratio-auto {
+	padding-bottom: calc(100vh - #{$hand-nav-height});
+	transition: all 0.724s ease; 
+	//clip-path: polygon(100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
+	
+	@include breakpoint("tablet-port") {
+		
+	}
+	
+	@include breakpoint("tablet-land") {
+		
+	}
+	
+	@include breakpoint("desktop") {
+		padding-bottom: calc(100vh - #{$desk-nav-height});
+	}
+	
+	@include breakpoint("wide") {
+		
+	}
+}
+
+#fdc-hero-image-bg.ratio--child {
+	display: flex;
+	align-items: center;
+	background-position: center center;
+	padding-bottom: calc(38vh - #{$hand-nav-height});
+
+	@include breakpoint("tablet-port") {
+		
+	}
+	
+	@include breakpoint("tablet-land") {
+		
+	}
+	
+	@include breakpoint("desktop") {
+		padding-bottom: calc(38vh - #{$desk-nav-height});
+	}
+	
+	@include breakpoint("wide") {
+		
+	}
+}
+
+#fdc-hero-image-inner {
+	z-index: 999;
+	text-align: center;
+	color: white;
+}
+
+#fdc-hero-image-inner h1 {
+	font-family: 'proxima-bold', sans-serif;
+	font-size: 1.7em;
+	line-height: 1.382;
+	font-weight: 700;
+
+	@include breakpoint("tablet-port") {
+		font-size: 2em;
+	}
+	
+	@include breakpoint("tablet-land") {
+		font-size: 2.5em;
+	}
+	
+	@include breakpoint("desktop") {
+		font-size: 3.1em;
+	}
+	
+	@include breakpoint("wide") {
+		font-size: 3.8em;
+	}
+}
+
+section#fdc-hero-image #scroll-to {
+  position: absolute;
+  top: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 32px;
+  margin: 0 auto;
+  color: white;
+  background-color: $color-1;
+  transition: all 0.4s ease-in-out;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+
+section#fdc-hero-image #scroll-to:hover {
+  background-color: $color-4;
+  color: black;
+  height: 48px;
+  border-radius: 1.618em 1.618em 0 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.spacer {
+	min-height: 5.3125em;
+
+	@include breakpoint("tablet-port") {
+		
+	}
+	
+	@include breakpoint("tablet-land") {
+		
+	}
+	
+	@include breakpoint("desktop") {
+		min-height: 2.5em + 5.3125em;
+	}
+	
+	@include breakpoint("wide") {
+		
+	}
+}

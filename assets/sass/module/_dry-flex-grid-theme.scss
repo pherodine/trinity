@@ -1,0 +1,124 @@
+/* Global Theme Elements */
+.f-grid__cell {
+    &--b-top, 
+    &--ib-top {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &--b-right, 
+    &--ib-right {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &--b-bottom, 
+    &--ib-bottom {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &--b-left, 
+    &--ib-left {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.f-grid--light,
+.f-grid--mid,
+.f-grid--dark {
+    line-height: 1.382;
+}
+
+.f-grid--light .f-grid__heading,
+.f-grid--mid .f-grid__heading,
+.f-grid--dark .f-grid__heading,
+.f-grid--light .f-grid__link,
+.f-grid--mid .f-grid__link,
+.f-grid--dark .f-grid__link {
+    font-weight: 700;
+}
+
+.f-grid--light .f-grid__copy,
+.f-grid--mid .f-grid__copy,
+.f-grid--dark .f-grid__copy {
+    margin: 0 0 1em;
+}
+
+
+/* Light Text Copy Theme */
+.f-grid--light {
+    background-color: white;
+}
+
+.f-grid--light .f-grid__heading {
+    color: $color-3;
+}
+
+.f-grid--light .f-grid__copy {
+    color: #5b6f89;
+}
+
+/*
+.f-grid--light .f-grid__link,
+.f-grid--light .f-grid__link:active,
+.f-grid--light .f-grid__link:visited,
+.f-grid--light .f-grid__link:focus {
+    color: #6e95dc;
+    transition: color 0.4s ease-in-out;
+}
+
+.f-grid--light .f-grid__link:hover {
+    color: #203260;
+}
+*/
+
+/* Mid / Soft Text Copy Theme */
+.f-grid--mid {
+    background-color: #F2F5FA;
+}
+
+.f-grid--mid .f-grid__heading {
+    color: $color-3;
+}
+
+.f-grid--mid .f-grid__copy {
+    color: #5b6f89;
+}
+
+/*
+.f-grid--mid .f-grid__link,
+.f-grid--mid .f-grid__link:active,
+.f-grid--mid .f-grid__link:visited,
+.f-grid--mid .f-grid__link:focus {
+    color: #6e95dc;
+    transition: color 0.4s ease-in-out;
+}
+
+.f-grid--mid .f-grid__link:hover {
+    color: #203260;
+}
+*/
+
+/* Dark Text Copy Theme */
+.f-grid--dark {
+    background-color: $color-1;
+}
+
+.f-grid--dark .f-grid__heading {
+    color: $color-4;
+}
+.f-grid--dark .f-grid__copy {
+    color: white;
+}
+
+/*
+.f-grid--dark .f-grid__link,
+.f-grid--dark .f-grid__link:active,
+.f-grid--dark .f-grid__link:visited,
+.f-grid--dark .f-grid__link:focus {
+    color: #6e95dc;
+    transition: color 0.4s ease-in-out;
+}
+
+.f-grid--dark .f-grid__link:hover {
+    color: #e2bf49;
+}
+*/

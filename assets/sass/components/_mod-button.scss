@@ -1,0 +1,74 @@
+.button {
+	display: inline-block;
+	margin-top: 1.618em;
+	padding: 1em 1.5em;
+	background: $color-4;
+	color: black;
+	color: rgba(0, 0, 0, 0.62);
+	text-decoration: none;
+	border-radius: 0;
+	font-weight: 700;
+	transition: all 0.4s ease-in-out;
+	/* box-shadow: 0px 0px 16px 6px rgba(black, 0.382); */
+    cursor: pointer;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+	color: black;
+	border-radius: 1.618em;
+	transition: all 0.4s ease-in-out;
+}
+
+.button.small {
+	font-size: 0.69em;
+	letter-spacing: 0.19em;
+	font-weight: 700;
+	text-transform: uppercase;
+    
+}
+
+.button.small.disabled,
+.button.small.disabled:hover
+.button.small.disabled:focus
+.button.small.disabled:active {
+    border-color: rgba($color-2, 0);
+    color: rgba(white, 1);
+    background-color: rgba($color-2, 0.34);
+}
+
+.buttons.grey {
+	border-color: rgba($color-2, 1);
+	background: rgba($color-2, 1);
+	color: rgba($color-1, 1);
+}
+
+// smaller 554px to 767px
+@media screen and (min-width: 34em) {
+	
+}
+
+
+// between 768x to 991px
+@media screen and (min-width: 48em) {
+	
+}
+
+
+// between 992px to 1199px
+@media screen and (min-width: 62em) {
+	
+}
+
+
+// between 1200px to 1595px
+@media screen and (min-width: 75em) {
+	
+}
+
+
+// greater than 1596px
+@media screen and (min-width: 100em) {
+	
+}

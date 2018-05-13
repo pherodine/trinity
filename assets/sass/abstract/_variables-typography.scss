@@ -1,0 +1,34 @@
+// Font Family
+$font-family: 'Arial', sans-serif;
+
+// Base Font for HTML
+$base-font-size: 16px;
+
+// Paragraph Styles
+$paragraph-color      : #505050;
+$paragraph-size       : rem(17px);
+$paragraph-line-height: rem(24px);
+$paragraph-margin     : rem(20px);
+
+// Header Styles
+$header-color      : #292929;
+$header-size       : rem(40px);
+$header-line-height: rem(20px);
+$header-margin     : $paragraph-margin * 1.2;
+$expo              : 1.382;
+
+// Blockquote Styles
+$blockquote-color      : #505050;
+$blockquote-size       : rem(24px);
+$blockquote-line-height: rem(24px);
+$blockquote-margin     : $paragraph-margin * 1.5;
+
+// Links
+$link-color: #4eaff6;
+
+// hr
+$hr-margin: 30px;
+
+// Type Misc
+$font-weight-bold: 800;
+$border-color: #DADADA;

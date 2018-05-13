@@ -1,0 +1,319 @@
+/* // Mobile First upto 543px
+.shell-footer {
+    padding: 2em 0.9375em;
+    text-align: center;
+    color: white;
+    border-top: 1px solid $color-4;
+    background-color: $color-3;
+    
+    &__copyright, &__reg {
+        font-size: 0.85em;
+    }
+
+    &__copyright {
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 1em 0;
+    }
+
+    &__reg {
+        color: white;
+        color: rgba(255, 255, 255, 0.62);
+    }
+    
+    &__inner .brand {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 1.618em;
+    }
+}
+
+// smaller 544px to 767px
+@media screen and (min-width: 34em) {
+    
+}
+
+
+// between 768x to 991px
+@media screen and (min-width: 48em) {
+    
+}
+
+
+// between 992px to 1199px
+@media screen and (min-width: 62em) {
+    .fd-footer-nav li {
+        display: inline-block;
+        font-weight: 700;
+        padding: 0 1em;
+        margin: 1em 0;
+
+        & a {
+            color: #6e95dc;
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+                color: white;
+            }
+        }
+
+        &.active a {
+            color: white;
+        }
+    }
+}
+
+
+// between 1200px to 1595px
+@media screen and (min-width: 75em) {
+    
+}
+
+
+// greater than 1596px
+@media screen and (min-width: 100em) {
+    
+} */
+
+.shell__foot {   
+    padding: 5vw;
+
+    p {
+        margin: 0;
+    }
+
+    &__link {
+        text-decoration: underline;
+
+        &--bold {
+            font-weight: 700;
+        }       
+    }
+
+    &__logo {
+        display: block;
+        width: $hand-nav-height;
+        height: $hand-nav-height;
+        margin-bottom: 1.618em;
+
+        @include breakpoint("tablet-port") {
+            width: $port-nav-height;
+            height: $port-nav-height;
+        }
+        
+        @include breakpoint("tablet-land") {
+            width: $land-nav-height;
+            height: $land-nav-height;
+        }
+        
+        @include breakpoint("desktop") {
+            width: $desk-nav-height;
+            height: $desk-nav-height;
+        }
+        
+        @include breakpoint("wide") {
+            width: $wide-nav-height;
+            height: $wide-nav-height;
+        }
+    }
+
+    &__tagline {
+        font-size: 0.618em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__copy {
+        & p:nth-of-type(2) {
+            margin-top: (8.5*0.382) * 1vw;
+
+            @include breakpoint("tablet-port") {
+                
+            }
+            
+            @include breakpoint("tablet-land") {
+                
+            }
+            
+            @include breakpoint("desktop") {
+                margin-top: 0.382em;
+                font-size: 2em;
+                font-weight: 700;
+            }
+            
+            @include breakpoint("wide") {
+                
+            }
+        }
+
+        @include breakpoint("tablet-port") {
+            
+        }
+        
+        @include breakpoint("tablet-land") {
+            
+        }
+        
+        @include breakpoint("desktop") {
+            &__cta {
+                font-size: 2em;
+                line-height: 1.382;
+            }
+        }
+        
+        @include breakpoint("wide") {
+            
+        }
+    }
+
+    &__contact {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        margin-top: (8.5 *0.382) * 1vw;
+        
+        & p {
+            font-size: 0.8em;
+            line-height: 2.382;
+
+            @include breakpoint("tablet-port") {
+                
+            }
+            
+            @include breakpoint("tablet-land") {
+                
+            }
+            
+            @include breakpoint("desktop") {
+                font-size: 0.9375em;
+            }
+            
+            @include breakpoint("wide") {
+                
+            }
+            
+            &:first-of-type {
+                font-weight: 700;
+            }
+        }
+
+        &__office, &__conversation, &__recent, &__social {
+            flex: 0 0 auto;
+            width: 50%;
+            margin-top: 8.5vw;
+
+            @include breakpoint("tablet-port") {
+                
+            }
+            
+            @include breakpoint("tablet-land") {
+                
+            }
+            
+            @include breakpoint("desktop") {
+                width: 25%;
+                margin-top: 0;
+            }
+            
+            @include breakpoint("wide") {
+                
+            }
+        }
+    }
+
+    &__copyright {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        margin-top: 8.5vw;
+
+        @include breakpoint("tablet-port") {
+            
+        }
+        
+        @include breakpoint("tablet-land") {
+            
+        }
+        
+        @include breakpoint("desktop") {
+            margin-top: (8.5 * 0.382) * 1vw;
+        }
+        
+        @include breakpoint("wide") {
+        
+        }
+
+
+        & p {
+            font-size: 0.618em;
+            text-transform: uppercase;
+            line-height: 1.382;
+            
+            &:first-of-type {
+                font-weight: 700;
+            }
+        }
+
+        & br {
+            margin: 0;
+        }
+    }
+
+    &__legal {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-bottom: (8.5 * 0.618) * 1vw;
+
+        @include breakpoint("tablet-port") {
+            
+        }
+        
+        @include breakpoint("tablet-land") {
+            
+        }
+        
+        @include breakpoint("desktop") {
+            width: 38%;
+            margin-bottom: 0;
+        }
+        
+        @include breakpoint("wide") {
+            
+        }
+    }
+
+    &__comply {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 8.5vw;
+
+        @include breakpoint("tablet-port") {
+            
+        }
+        
+        @include breakpoint("tablet-land") {
+            
+        }
+        
+        @include breakpoint("desktop") {
+            width: 62%;
+            margin-bottom: 0;
+        }
+        
+        @include breakpoint("wide") {
+            
+        }
+
+        & a {
+            font-size: 0.618em;
+            text-transform: uppercase;
+        }
+
+        &__terms, &__privacy {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+    }
+}
