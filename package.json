@@ -31,6 +31,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npm gulp setup",
     "production": "npm gulp production"
   },
   "author": "Aaron Smyth of Fixr Digial",
