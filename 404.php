@@ -30,4 +30,4 @@
                 </div>
             </div>
         </section>
-<?php get_template_part('modules/dry-ns-footer'); ?>
+<?php get_template_part('modules/dry-fixr-footer'); ?>

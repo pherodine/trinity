@@ -22,5 +22,4 @@ $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish
     <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 <?php endif; ?>
 
-<?php get_template_part('modules/dry-call-to-action'); ?>
-<?php get_template_part('modules/dry-ns-footer'); ?>
+<?php get_template_part('modules/dry-fixr-footer'); ?>
