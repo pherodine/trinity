@@ -1,0 +1,22 @@
+@import '_variables-colours';
+@import '_variables-navigation';
+@import '_variables-typography';
+
+// Navigation Properties
+$navbar-height: 4.69em;
+
+// Transition Speed
+$speed: 0.4;
+
+// Padding
+$pad-mob-tb: 7.25em;
+$pad-mob-lr: 1.5625em;
+
+$pad-des-lr: 3.125em;
+
+// Golden Ratio Transition
+$trans-fast: all 0.382s ease-in-out;
+$trans-slow: all 0.618s ease-in-out;
+
+$hand-nav-height: 5.3125em;
+$desk-nav-height: 7.8125em;

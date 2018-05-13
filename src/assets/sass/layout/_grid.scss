@@ -1,0 +1,190 @@
+@supports(display: grid) {
+    .shell {
+        display: grid;
+        grid-template-areas: "head" "body" "foot";
+        grid-template-rows: $hand-nav-height, 1fr 1fr;
+        grid-template-columns: 1fr;
+
+        @include breakpoint("tablet-port") {
+            grid-template-rows: $port-nav-height, 1fr 1fr;
+        }
+        
+        @include breakpoint("tablet-land") {
+            grid-template-rows: $land-nav-height, 1fr 1fr;
+        }
+        
+        @include breakpoint("desktop") {
+            grid-template-rows: $desk-nav-height, 1fr 1fr;
+        }
+        
+        @include breakpoint("wide") {
+            grid-template-rows: $wide-nav-height, 1fr 1fr;
+        }
+
+        &--max {
+            max-width: map-get($breakpoints, $wide);
+            max-width: 100em;
+            margin: 0 auto;
+        }
+
+        // Head section of the layout
+        &__head {
+            grid-area: head;
+            display: grid;
+            grid-template-areas: "brand . toggle" "oc-menu oc-menu oc-menu";
+            grid-template-rows: 5em 1fr;
+            grid-template-columns: 5em 1fr 5em;
+
+            @include breakpoint("tablet-port") {
+                    
+            }
+
+            @include breakpoint("tablet-land") {
+                
+            }
+
+            @include breakpoint("desktop") {
+                grid-template-areas: "info info" "brand oc-menu";
+                grid-template-rows: 2.5em 9em;
+                grid-template-columns: 9em 1fr;
+            }
+
+            @include breakpoint("wide") {
+                    
+            }
+
+            &__info {
+                grid-area: info;
+                display: flex;
+                align-items: stretch; 
+            }
+
+            &__brand {
+                grid-area: brand;
+                display: flex;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 3em;
+                transition: $trans-fast;
+
+                @include breakpoint("tablet-port") {
+
+                }
+
+                @include breakpoint("tablet-land") {
+                    background-size: 5em;
+                }
+
+                @include breakpoint("desktop") {
+                    background-size: 7em;
+                }
+            }
+
+            &__toggle {
+                grid-area: toggle;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                @include breakpoint("tablet-port") {
+                    
+                }
+                
+                @include breakpoint("tablet-land") {
+                    
+                }
+                
+                @include breakpoint("desktop") {
+                    display: none;
+                }
+                
+                @include breakpoint("wide") {
+                    
+                }
+            }
+
+            &__ocmenu {
+                grid-area: oc-menu;
+
+                @include breakpoint("tablet-port") {
+                    
+                }
+                
+                @include breakpoint("tablet-land") {
+                    
+                }
+                
+                @include breakpoint("desktop") {
+                    
+                }
+                
+                @include breakpoint("wide") {
+                    
+                }
+            }
+        }
+
+        // Body section of the layout
+        &__body {
+           grid-area: body;
+
+           @include breakpoint("tablet-port") {
+               
+           }
+           
+           @include breakpoint("tablet-land") {
+               
+           }
+           
+           @include breakpoint("desktop") {
+               
+           }
+           
+           @include breakpoint("wide") {
+               
+           }
+        }
+
+
+        // Foot section of the layout
+        &__foot {
+            grid-area: foot;
+            display: grid;
+            grid-template-areas: "brand" "cta" "links" "copyright";
+            grid-template-columns: 1fr;
+
+            @include breakpoint("tablet-port") {
+                
+            }
+            
+            @include breakpoint("tablet-land") {
+                
+            }
+            
+            @include breakpoint("desktop") {
+                grid-template-areas: "brand cta" ". links" "copyright copyright";
+                grid-template-columns: 38.2% 61.8%;
+            }
+            
+            @include breakpoint("wide") {
+                
+            }
+
+            &__brand {
+                grid-area: brand;
+            }
+
+            &__copy {
+                grid-area: cta;
+            }
+
+            &__contact {
+                grid-area: links;
+            }
+
+            &__copyright {
+                grid-area: copyright;
+            }
+        }
+    }
+}

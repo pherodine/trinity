@@ -30,7 +30,8 @@
     "vinyl-ftp": "^0.6.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "production": "npm gulp production"
   },
   "author": "Aaron Smyth of Fixr Digial",
   "license": "ISC"
