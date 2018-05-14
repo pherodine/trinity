@@ -1,2 +1,2 @@
-<?php get_template_part('modules/dry-header-alt'); ?>
-<?php get_template_part('modules/dry-fixr-footer'); ?>
+<?php get_template_part('modules/header'); ?>
+<?php get_template_part('modules/footer'); ?>

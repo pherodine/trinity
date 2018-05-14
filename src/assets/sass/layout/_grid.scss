@@ -2,24 +2,9 @@
     .shell {
         display: grid;
         grid-template-areas: "head" "body" "foot";
-        grid-template-rows: $hand-nav-height, 1fr 1fr;
         grid-template-columns: 1fr;
-
-        @include breakpoint("tablet-port") {
-            grid-template-rows: $port-nav-height, 1fr 1fr;
-        }
-        
-        @include breakpoint("tablet-land") {
-            grid-template-rows: $land-nav-height, 1fr 1fr;
-        }
-        
-        @include breakpoint("desktop") {
-            grid-template-rows: $desk-nav-height, 1fr 1fr;
-        }
-        
-        @include breakpoint("wide") {
-            grid-template-rows: $wide-nav-height, 1fr 1fr;
-        }
+        grid-template-rows: $hand-nav-height 1fr inherit;
+        background-color: white;
 
         &--max {
             max-width: map-get($breakpoints, $wide);
@@ -27,99 +12,42 @@
             margin: 0 auto;
         }
 
-        // Head section of the layout
+        /* Header */
         &__head {
             grid-area: head;
             display: grid;
-            grid-template-areas: "brand . toggle" "oc-menu oc-menu oc-menu";
-            grid-template-rows: 5em 1fr;
-            grid-template-columns: 5em 1fr 5em;
+            grid-template-areas: "logo . toggle" "menu menu menu";
+            grid-template-columns: 1fr auto 5em;
+            grid-template-rows: auto;
+            
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 0.5em;
 
-            @include breakpoint("tablet-port") {
-                    
-            }
-
-            @include breakpoint("tablet-land") {
-                
-            }
-
-            @include breakpoint("desktop") {
-                grid-template-areas: "info info" "brand oc-menu";
-                grid-template-rows: 2.5em 9em;
-                grid-template-columns: 9em 1fr;
-            }
-
-            @include breakpoint("wide") {
-                    
-            }
-
-            &__info {
-                grid-area: info;
+            &-brand, &-toggle {
                 display: flex;
-                align-items: stretch; 
+                align-items: center;
             }
 
-            &__brand {
-                grid-area: brand;
-                display: flex;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: 3em;
-                transition: $trans-fast;
-
-                @include breakpoint("tablet-port") {
-
-                }
-
-                @include breakpoint("tablet-land") {
-                    background-size: 5em;
-                }
-
-                @include breakpoint("desktop") {
-                    background-size: 7em;
-                }
+            &-brand {
+                grid-area: logo;
+                justify-content: flex-start;
             }
 
-            &__toggle {
+            &-toggle {
                 grid-area: toggle;
+                justify-content: center;
+                
+                min-height: 5em;
+            }
+
+            &-nav {
+                grid-area: menu;
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
-                @include breakpoint("tablet-port") {
-                    
-                }
-                
-                @include breakpoint("tablet-land") {
-                    
-                }
-                
-                @include breakpoint("desktop") {
+                &--hide {
                     display: none;
-                }
-                
-                @include breakpoint("wide") {
-                    
-                }
-            }
-
-            &__ocmenu {
-                grid-area: oc-menu;
-
-                @include breakpoint("tablet-port") {
-                    
-                }
-                
-                @include breakpoint("tablet-land") {
-                    
-                }
-                
-                @include breakpoint("desktop") {
-                    
-                }
-                
-                @include breakpoint("wide") {
-                    
                 }
             }
         }
@@ -146,44 +74,96 @@
         }
 
 
-        // Foot section of the layout
-        &__foot {
+        /* footer */
+        &__footer {
             grid-area: foot;
             display: grid;
-            grid-template-areas: "brand" "cta" "links" "copyright";
-            grid-template-columns: 1fr;
-
-            @include breakpoint("tablet-port") {
-                
-            }
+            grid-template-areas: "logo logo" "tag tag" "ethos ethos" "locale contact" "recent social";
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 5em 1.382em auto;
             
-            @include breakpoint("tablet-land") {
-                
-            }
-            
-            @include breakpoint("desktop") {
-                grid-template-areas: "brand cta" ". links" "copyright copyright";
-                grid-template-columns: 38.2% 61.8%;
-            }
-            
-            @include breakpoint("wide") {
-                
+            font-size: 0.875rem;
+            padding: 0.5em;
+
+            & [class*='__list'], .shell__footer [class*='-locale'] {
+                line-height: 2em;
             }
 
-            &__brand {
-                grid-area: brand;
+            & a {
+                color: black;
             }
 
-            &__copy {
-                grid-area: cta;
+            &-brand {
+                grid-area: logo;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
             }
 
-            &__contact {
-                grid-area: links;
+            &-tagline {
+                grid-area: tag;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
             }
 
-            &__copyright {
-                grid-area: copyright;
+            &-ethos {
+                grid-area: ethos;
+                display: grid;
+                grid-template-areas: "statement" "email";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+
+                &__heading {
+                    grid-area: statement;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    padding-top: 1em;
+                }
+
+                &__email {
+                    grid-area: email;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    
+                    margin-top: 0.5em;
+                    padding-bottom: 2em;
+                }
+
+                &-locale {
+                    grid-area: locale;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    
+                    padding-bottom: 1em;
+                    font-style: normal;
+                }
+
+                &-contact {
+                    grid-area: contact;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                }
+
+                &-recent {
+                    grid-area: recent;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    padding-bottom: 1.382em;
+                }
+
+                &-social {
+                    grid-area: social;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                }
             }
         }
     }

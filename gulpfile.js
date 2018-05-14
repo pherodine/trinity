@@ -13,8 +13,6 @@ var gutil = require('gulp-util');
 var cache = require('gulp-cache');
 var path = require('path');
 var del = require('del');
-var unzip = require('gulp-unzip');
-var zip = require('zip');
 ///////////////////////////////////////////////////////////////////////////////
 // CSS Dependencies
 ///////////////////////////////////////////////////////////////////////////////
@@ -37,7 +35,6 @@ var imagemin = require('gulp-imagemin');
 // FTP Dependencies
 ///////////////////////////////////////////////////////////////////////////////
 var ftp = require('vinyl-ftp');
-var remoteSrc = require('gulp-remote-src');
 ///////////////////////////////////////////////////////////////////////////////
 // Configurations
 ///////////////////////////////////////////////////////////////////////////////
@@ -120,22 +117,6 @@ var dt_stamp = function() {
 ///////////////////////////////////////////////////////////////////////////////
 // Tasks
 ///////////////////////////////////////////////////////////////////////////////
-gulp.task('download-trinity', function() {
-    remoteSrc(['master.zip'], { base: 'https://github.com/pherodine/trinity/' })
-    .pipe(gulp.dest(io.files_out));
-});
-
-gulp.task('unzip-trinity', function() {
-    gulp.src(io.files_out + "master.zip")
-    .pipe(unzip())
-    .pipe(gulp.dest(io.files_out));
-});
-
-gulp.task('delete-zip', function() {
-    del([io.files_out + 'master.zip']);
-});
-
-gulp.task('setup', ['download-trinity', 'unzip-trinity', 'delete-zip']);
 
 // Process the sass files
 gulp.task('css', function() {

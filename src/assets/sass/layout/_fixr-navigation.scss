@@ -1,29 +1,4 @@
 // Mobile First upto 543px
-.header-shell {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.header-shell__grid {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 5.3125em;
-  background-color: $white;
-  color: $black;
-  padding: 0.6em;
-  overflow: hidden;
-  transition: all 0.4s ease-in-out;
-}
-
-.brand, .hamburger {
-  width: 10.085em;
-  height: 2.035em;
-}
-
 .hamburger {
   position: absolute;
   top: 0.6em;
@@ -38,12 +13,6 @@
   width: 3.75em;
   cursor: pointer;
   margin-left: auto;
-}
-
-.brand a, .brand img {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 
 .main-nav {

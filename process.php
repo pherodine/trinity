@@ -13,10 +13,10 @@
     $fullname = $email = $number = $county = $type = $how = $details = $human = "";
 
     $debug_mode = false;
-    $admin_to = "aaron@fixrdigital.co.uk";
-    $company_to = "ria@";
+    $admin_to = "admin@fixrdigital.co.uk";
 	$sub_domain = "mg";
-	$sitename = "North Star Wealth";
+    $sitename = "North Star Wealth Management";
+    $enquiry_account = "info";
 	$url = "northstarwealth.co.uk";
 
     // validate the variables ======================================================
@@ -89,8 +89,8 @@
             }
             // if there are no errors process our form, then return a message
             // Email Harris Brothers
-            $to = "info@northstarwealth.co.uk";
-            $subject = "North Star Wealth Web Enquiry";
+            $to = $enquiry_account . "@" . $url;
+            $subject = $sitename . " Web Enquiry";
             $uid = strtoupper(hyphenate(md5(time() . $fullname . $email)));
 			
 			$message  = "<html><body>";
@@ -106,13 +106,11 @@
             $message .= "<p>Message ID: " . strip_tags($uid) . "</p>"; 
             $message .= "</body></html>";
             
-            // Send the email
+            // Send the email to client
             $send = send_mailgun($to, $subject, $message);
                         
-            // Email sender
+            // Send Email to customer
             
-            // Send the response
-			//$send = send_mailgun("no-reply@mg.northstarwealth.co.uk <North Star Wealth>", $to, "no-reply@mg.northstarwealth.co.uk", $subject, $message);
             
             // show a message of success and provide a true success variable        
             $data['success'] = true;
