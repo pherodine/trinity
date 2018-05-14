@@ -36,39 +36,6 @@ function fixr_enqueue() {
     wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
 	wp_enqueue_script('jquery');
 	
-	// Load jQuery UI for calculator pages
-	if(page_contains('calculator')) {
-		$wp_scripts = wp_scripts();
-		wp_enqueue_style('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-core']->ver . '/themes/smoothness/jquery-ui.css', false, null, "screen");
-		wp_enqueue_script("jquery-ui-core");
-		wp_enqueue_script('jquery-ui-slider');
-	}
-
-	if(page_contains('inflation-projection')) {
-		wp_register_script('inflation-calc', theme_uri(VENDOR . 'fixrdigital/inflation_projection_calculator.js'), NULL, __NAMESPACE__, true);
-		wp_enqueue_script('inflation-calc');
-	}
-
-	if(page_contains('investment-projection')) {
-		wp_register_script('investment-calc', theme_uri(VENDOR . 'fixrdigital/investment_projection_calculator.js'), NULL, __NAMESPACE__, true);
-		wp_enqueue_script('investment-calc');
-	}
-
-	if(page_contains('loan-repayment')) {
-		wp_register_script('loan-repay-calc', theme_uri(VENDOR . 'fixrdigital/loan_repayment_calculator.js'), NULL, __NAMESPACE__, true);
-		wp_enqueue_script('loan-repay-calc');
-	}
-
-	if(page_contains('mortgage-borrowing')) {
-		wp_register_script('mort-borrow-calc', theme_uri(VENDOR . 'fixrdigital/mortgage_borrowing_calculator.js'), NULL, __NAMESPACE__, true);
-		wp_enqueue_script('mort-borrow-calc');
-	}
-
-	if(page_contains('mortgage-repayment')) {
-		wp_register_script('mort-repay-calc', theme_uri(VENDOR . 'fixrdigital/mortgage_repayment_calculator.js'), NULL, __NAMESPACE__, true);
-		wp_enqueue_script('mort-repay-calc');
-	}
-	
 	// Register Conditional Scripts
 	wp_register_script('html5shiv', theme_uri(JS . 'html5shiv.js'), NULL, __NAMESPACE__, false);
     wp_register_script('respond', theme_uri(JS . 'respond.js'), NULL, __NAMESPACE__, false);
