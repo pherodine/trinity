@@ -13,7 +13,7 @@
         }
 
         /* Header */
-        &__head {
+        &__header {
             grid-area: head;
             display: grid;
             grid-template-areas: "logo . toggle" "menu menu menu";

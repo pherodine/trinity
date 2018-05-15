@@ -1,6 +1,4 @@
 // Vendors
-@import 'vendors/_slick.scss';
-@import 'vendors/_slick-theme.scss';
 
 // Abstracts
 @import 'abstract/_functions.scss';
@@ -26,19 +24,11 @@
 @import 'layout/_header.scss';
 @import 'layout/_fixr-navigation.scss';
 @import 'layout/_footer.scss';
-@import 'layout/_footer-theme.scss';
-//@import 'layout/_grid.scss';
+@import 'layout/_grid.scss';
 @import 'layout/_forms.scss';
 
 // Modules
-@import 'module/_dry-pagination.scss';
-@import 'module/_dry-pagination-theme.scss';
-@import 'module/_dry-flex-grid.scss';
-@import 'module/_dry-flex-grid-theme.scss';
-@import 'module/_dry-hero-image.scss';
-@import 'module/_dry-load-bar.scss';
-@import 'module/_dry-page-introduction.scss';
-@import 'module/_dry-page-introduction-theme.scss';
+// @import 'module/_dry-pagination.scss';
 
 // Page
 
