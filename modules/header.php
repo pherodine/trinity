@@ -12,8 +12,8 @@
     // check advanced custom fields is installed
 	$has_acf = (class_exists('acf')) ? true : false;
 
-	// Use custom page if it has been set
-	$checked = get_field('custom_page_title');
+    // Use custom page if it has been set
+    $checked = ($has_acf) ? get_field('custom_page_title') : null;
 	$page_title = "";
 	
 	if($checked && !empty($checked)) {

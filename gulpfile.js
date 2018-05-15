@@ -10,6 +10,8 @@ var gutil = require('gulp-util');
 var cache = require('gulp-cache');
 var path = require('path');
 var del = require('del');
+var fs = require('fs');
+var bump = require('gulp-bump');
 ///////////////////////////////////////////////////////////////////////////////
 // CSS Dependencies
 ///////////////////////////////////////////////////////////////////////////////
@@ -20,7 +22,6 @@ var base64 = require('gulp-base64');
 ///////////////////////////////////////////////////////////////////////////////
 // JS Dependencies
 ///////////////////////////////////////////////////////////////////////////////
-//var jshint = require('gulp-jshint');
 var stripdebug = require('gulp-strip-debug');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
@@ -56,23 +57,33 @@ var io = {
     vendor_out: 'assets/js/vendor/',
 
     root_src: 'src/**/*.{php,css,pdf,ttf,eof,woff,woff2,png,ico}',
-    root_out: './'
+    root_out: './',
+};
+
+var theme = {
+    "name": 'Trinity',
+    "ThemeURI": 'https://github.com/pherodine/trinity',
+    "Description": "Starter theme for FIXR Digital Projects",
+    "Author": "Aaron Smyth",
+    "AuthorURI": "https://fixrdigital.co.uk",
+    "Version": "0.0.0",
 };
 
 // All ftp settings
 var ftp_access = {
-    user: process.env.TMP_USER,
-    pass: process.env.TMP_PASS,
+    user: process.env.FDSTG_USER,
+    pass: process.env.FDSTG_PASS,
     host: 'ftp.fixrdigital.co.uk',
     port: 21,
     glob: [
-        './' + io.files_out + '/**',
-        './' + io.sass_out + '/**',
-        './' + io.js_out + '/**',
-        './' + io.img_out + '/**',
-        './' + io.files_out + '/fonts/**',
+        io.root_out + '**/*',
+        '!./node_modules/**/*',
+        '!./.gitignore',
+        '!./*.js',
+        '!./*.json',
+        '!./*.md'
     ],
-    remote_dir: '/wp-content/themes/fixr-tmpllp'
+    remote_dir: '/wp-content/themes/' + theme.name.toLowerCase() + "/"
 };
 var conn = getFTPConnection();
 
@@ -236,11 +247,11 @@ gulp.task('default', ['sync', 'css', 'js'], function() {
         });
     
     // Deploy Code Changes
-    /* gulp.watch(ftp_access.glob) 
+    gulp.watch(ftp_access.glob) 
     .on('change', function(evt) {
-        return gulp.src([evt.path], { base: './dist', buffer: false })
+        return gulp.src([evt.path], { base: './', buffer: false })
         .pipe(conn.newer(ftp_access.remote_dir))
         .pipe(conn.dest(ftp_access.remote_dir));
     })
-    .on('error', gutil.log); */
+    .on('error', gutil.log);
 });
