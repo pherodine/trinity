@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Starter framework for all Fixr Digital contracts",
   "main": "gulpfile.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
@@ -19,6 +18,7 @@
     "gulp-notify": "^3.2.0",
     "gulp-path": "^3.0.3",
     "gulp-plumber": "^1.2.0",
+    "gulp-prompt": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.2.1",
@@ -32,8 +32,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "npm gulp setup",
-    "production": "npm gulp production"
+    "rename": "gulp theme:rename",
+    "deploy": "gulp deploy"
   },
   "author": "Aaron Smyth of Fixr Digial",
   "license": "ISC"

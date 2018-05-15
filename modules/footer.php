@@ -14,10 +14,11 @@
                 <address class="shell__footer-locale">
                     <p>
                         <b>Locale</b>
-                        <br> 11 Thackeray
+                        <br>11 Thackeray
                         <br>Horfield
                         <br>Bristol
-                        <br>BS7 0NX</p>
+                        <br>BS7 0NX
+                    </p>
                 </address>
 
                 <div class="shell__footer-contact">

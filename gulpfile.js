@@ -12,6 +12,7 @@ var path = require('path');
 var del = require('del');
 var fs = require('fs');
 var bump = require('gulp-bump');
+var prompt = require('gulp-prompt');
 ///////////////////////////////////////////////////////////////////////////////
 // CSS Dependencies
 ///////////////////////////////////////////////////////////////////////////////
@@ -60,14 +61,8 @@ var io = {
     root_out: './',
 };
 
-var theme = {
-    "name": 'Trinity',
-    "ThemeURI": 'https://github.com/pherodine/trinity',
-    "Description": "Starter theme for FIXR Digital Projects",
-    "Author": "Aaron Smyth",
-    "AuthorURI": "https://fixrdigital.co.uk",
-    "Version": "0.0.0",
-};
+var theme_name = "trinity";
+var style_css_out = "";
 
 // All ftp settings
 var ftp_access = {
@@ -83,7 +78,7 @@ var ftp_access = {
         '!./*.json',
         '!./*.md'
     ],
-    remote_dir: '/wp-content/themes/' + theme.name.toLowerCase() + "/"
+    remote_dir: '/wp-content/themes/' + theme_name + "/"
 };
 var conn = getFTPConnection();
 
@@ -140,6 +135,15 @@ var dt_stamp = function() {
 
     return y + m + d + s;
 };
+
+var time = function() {
+    var D = new Date();
+    var hours = D.getHours();
+    var mins = D.getMinutes();
+    var secs = D.getSeconds();
+
+    return "[" + ((hours < 10) ? "0" + hours : hours) + ":" + ((mins < 10) ? "0" + mins : mins) + ":" + ((secs < 10) ? "0" + secs : secs) +"] ";
+}
 ///////////////////////////////////////////////////////////////////////////////
 // CSS Tasks
 ///////////////////////////////////////////////////////////////////////////////
@@ -192,7 +196,7 @@ gulp.task('compose:js', ['vendor:con', 'bundle:app'], function() {
 
 gulp.task('js', ['compose:js'], function() {
     del(io.js_dev_out)
-    .then(paths => { console.log('Deleted: ', paths.join('\n')); });
+    .then(paths => { console.log(time() + 'Deleted ', paths.join('\'\n')); });
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -225,7 +229,85 @@ gulp.task('deploy', ['sync', 'css', 'js'], function() {
     return gulp.src(ftp_access.glob, { base: './', buffer: false })
     .pipe(conn.newer(ftp_access.remote_dir))
     .pipe(conn.dest(ftp_access.remote_dir));
-})
+});
+
+gulp.task('theme:rename', function(callback) {
+    var results;
+
+    gulp.src(io.root_out)
+    .pipe(prompt.prompt([
+        {
+            type: 'input',
+            name: 'theme_name',
+            message: 'Enter a new Theme name: ',
+            default: 'Trinity'
+        },
+        {
+            type: 'input',
+            name: 'theme_uri',
+            message: 'Enter the Theme URI: ',
+            default: 'https://github.com/pherodine/trinity/'
+        },
+        {
+            type: 'input',
+            name: 'theme_description',
+            message: 'Theme Description: ',
+            default: 'A starter theme developed by FIXR Digital. Very minimal, clean and bloat free for quick start development'
+        },
+        {
+            type: 'input',
+            name: 'theme_author',
+            message: 'Who authored this theme: ',
+            default: 'Aaron Smyth of FIXR Digital'
+        },
+        {
+            type: 'input',
+            name: 'theme_author_uri',
+            message: 'Author URI: ',
+            default: 'https://fixrdigital.co.uk'
+        }
+    ], function(res){
+        style_css_out = "/*\n";
+        for(var key in res) {
+
+            if(key == "theme_name") {
+                style_css_out += "\tTheme Name: " + res[key] + "\n";
+            }
+
+            if(key == "theme_uri") {
+                style_css_out += "\tTheme URI: " + res[key] + "\n";
+            }
+
+            if(key == "theme_description") {
+                style_css_out += "\tDescription: " + res[key] + "\n";
+            }
+
+            if(key == "theme_author") {
+                style_css_out += "\tAuthor: " + res[key] + "\n";
+            }
+
+            if(key == "theme_author_uri") {
+                style_css_out += "\tAuthor URI: " + res[key] + "\n";
+            }
+        }
+        style_css_out += "\tVersion: 0.0.1\n";
+        style_css_out += "*/";
+
+        // update style.css
+        del(io.root_out + 'style.css')
+        .then(paths => { console.log(time() + 'Deleted \'', paths.join('\'\n')); })
+        .then(function() {
+            // Create new style.css with new content
+            fs.appendFile(io.root_out + 'style.css', style_css_out, function(err){
+            if(err){ onError(err); }
+                console.log(time() + 'Updated \'style.css\' successfully');
+            });
+        });
+
+        callback();
+    }))
+    .pipe(gulp.dest(io.root_out));
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Watchers

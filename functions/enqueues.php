@@ -59,7 +59,7 @@ function fixr_enqueue() {
 	wp_register_style('mobile-first', theme_uri(CSS . 'app.min.css'), null, null, "screen");
 	wp_enqueue_style('mobile-first');
 	
-	wp_register_script('app', theme_uri(JS . 'app.min.js'), NULL, null, true);
+	wp_register_script('app', theme_uri(JS . 'bundle.min.js'), NULL, null, true);
 	wp_enqueue_script('app');
 }
 add_action('wp_enqueue_scripts', 'fixr_enqueue', 100);
