@@ -265,6 +265,12 @@ gulp.task('theme:rename', function(callback) {
             name: 'theme_author_uri',
             message: 'Author URI: ',
             default: 'https://fixrdigital.co.uk'
+        },
+        {
+            type: 'input',
+            name: 'theme_text_domain',
+            message: 'Theme Text Domain: ',
+            default: 'fixr'
         }
     ], function(res){
         style_css_out = "/*\n";
@@ -291,6 +297,13 @@ gulp.task('theme:rename', function(callback) {
             }
         }
         style_css_out += "\tVersion: 0.0.1\n";
+        style_css_out += "\tLicense: GNU General Public License v3 or later\n";
+        style_css_out += "\tLicense URI: http://www.gnu.org/licenses/gpl-3.0.html\n";
+
+        if(res.theme_text_domain) {
+            style_css_out += "\tText Domain: " + res.theme_text_domain + "\n";
+        }
+
         style_css_out += "*/";
 
         // update style.css
@@ -335,5 +348,5 @@ gulp.task('default', ['sync', 'css', 'js'], function() {
         .pipe(conn.newer(ftp_access.remote_dir))
         .pipe(conn.dest(ftp_access.remote_dir));
     })
-    .on('error', gutil.log);
+    .on('error', onError);
 });
