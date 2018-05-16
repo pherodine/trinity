@@ -31,7 +31,7 @@ function fixr_menu($location = "main_menu", $css_class_prefix = 'main-menu', $cs
         'theme_location'    => $location,
         'container'         => false,
         'items_wrap'        => '<ul class="' . $css_class_prefix . ' ' . $modifiers . '">%3$s</ul>',
-        'walker'            => new fixr_bem_menu($css_class_prefix, true)
+        'walker'            => new fixr_mega_menu($css_class_prefix, true)
     );
     
     if (has_nav_menu($location)){

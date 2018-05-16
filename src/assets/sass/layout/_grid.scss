@@ -15,12 +15,26 @@
         &__header {
             grid-area: head;
             display: grid;
-            grid-template-areas: "logo . toggle" "menu menu menu";
-            grid-template-columns: 1fr auto 5em;
-            grid-template-rows: auto;
+            grid-template-areas: "logo . toggle";
+            grid-template-columns: 10em 1fr auto;
+            grid-template-rows: 50px;
+
+            @include breakpoint("tablet-port") {
+                
+            }
             
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.5em;
+            @include breakpoint("tablet-land") {
+                
+            }
+            
+            @include breakpoint("desktop") {
+                grid-template-rows: 80px;
+
+            }
+            
+            @include breakpoint("wide") {
+                
+            }
 
             &-brand, &-toggle {
                 display: flex;
@@ -33,10 +47,12 @@
             }
 
             &-toggle {
+                justify-content: center;
+            }
+
+            &__toggles {
                 grid-area: toggle;
                 justify-content: center;
-                
-                min-height: 5em;
             }
 
             &-nav {
@@ -80,16 +96,9 @@
             grid-template-areas: "logo logo" "tag tag" "ethos ethos" "locale contact" "recent social";
             grid-template-columns: 50% 50%;
             grid-template-rows: 5em 1.382em auto;
-            
-            font-size: 0.875rem;
-            padding: 0.5em;
 
             & [class*='__list'], .shell__footer [class*='-locale'] {
                 line-height: 2em;
-            }
-
-            & a {
-                color: black;
             }
 
             &-brand {
@@ -118,8 +127,6 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    
-                    padding-top: 1em;
                 }
 
                 &__email {
@@ -127,9 +134,6 @@
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
-                    
-                    margin-top: 0.5em;
-                    padding-bottom: 2em;
                 }
 
                 &-locale {
@@ -137,9 +141,6 @@
                     display: flex;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    
-                    padding-bottom: 1em;
-                    font-style: normal;
                 }
 
                 &-contact {
@@ -154,7 +155,6 @@
                     display: flex;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    padding-bottom: 1.382em;
                 }
 
                 &-social {

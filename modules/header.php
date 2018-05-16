@@ -39,25 +39,18 @@
 <body <?php body_class(); ?>>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC9X6BX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="shell shell--max">
-        <header class="shell__header">
+        <a class="shell__skip shell__skip--screen-reader" href="#content"><?php esc_html_e('Skip to content', 'fixr'); ?></a>
+        <header class="shell__header shell__header--fixed">
             <a class="shell__header-brand" href="#">FIXR Digital</a>
-            <a class="shell__header-toggle" href="#">Menu</a>
-            <nav class="shell__header-nav shell__header-nav--hide">
-                <ul class="shell__header-nav__list">
-                    <li class="shell__header-nav__list-item">
-                        <a class="shell__header-nav-list-item-link" href="#">Home</a>
-                    </li>
-                    <li class="shell__nav-item">
-                        <a class="shell__nav-link" href="#">Welcome</a>
-                    </li>
-                    <li class="shell__nav-item">
-                        <a class="shell__nav-link" href="#">Services</a>
-                    </li>
-                    <li class="shell__nav-item">
-                        <a class="shell__nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </nav>
+            
+            <ul class="shell__header__toggles">
+                <li class="shell__header__toggle-search"><a class="shell__header-toggle" href="#">Search<span></span></a></li>
+                <li class="shell__header__toggle-menu"><a class="shell__header-toggle" href="#">Menu<span></span></a></li>
+            </ul>
         </header>
+
+        <nav class="shell__nav">
+            <?php fixr_menu('navbar-top', 'shell__nav-list'); ?>
+        </nav>
 
         <main class="shell__body">
